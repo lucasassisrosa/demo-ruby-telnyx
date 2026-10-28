@@ -1,0 +1,13 @@
+# frozen_string_literal: true
+
+source "https://rubygems.org"
+
+# TelephonyCredential#to_jwt ships in telnyx-ruby 3.1.0, which is not on
+# RubyGems yet: install it straight from the 3.x branch.
+gem "telnyx", git: "https://github.com/team-telnyx/telnyx-ruby", branch: "legacy-3.x"
+# telnyx 3.x requires "faraday/retry" at load time but does not declare it.
+gem "faraday-retry", "~> 2.0"
+
+gem "dotenv"
+# only used by the optional login check against the WebRTC gateway
+gem "websocket-client-simple", "~> 0.8"
