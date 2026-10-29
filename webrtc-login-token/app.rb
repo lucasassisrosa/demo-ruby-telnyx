@@ -16,7 +16,10 @@ def credential(connection_id, credential_id)
   end
 
   puts "Creating a credential on connection #{connection_id}"
-  Telnyx::TelephonyCredential.create(connection_id: connection_id, name: "to_jwt demo #{Time.now.utc.iso8601}")
+  # include: "token_material" asks the API for the signing material to_jwt needs; it is as
+  # sensitive as the SIP password, so the API returns it only on request.
+  Telnyx::TelephonyCredential.create(connection_id: connection_id, name: "to_jwt demo #{Time.now.utc.iso8601}",
+                                     include: "token_material")
 end
 
 # Sends a JSON-RPC login with the token and waits for the gateway's answer.

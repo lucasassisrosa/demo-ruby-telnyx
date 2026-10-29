@@ -70,4 +70,4 @@ When the application is started:
 * A login token valid for one hour is minted locally and printed. Hand a token like this to the WebRTC SDK as its `login_token`
 * The app logs in to the WebRTC gateway with it and prints the answer. A credential created a moment ago takes a few seconds to be known by the gateways, so the login is retried a few times
 
-The token is computed from the credential's `token_material`, which the API returns when the credential is created (and on `GET /v2/telephony_credentials/{id}/token_material`). Store that material with the credential and you can mint tokens for as long as the credential lives, with no further requests.
+The token is computed from the credential's `token_material`, which the API returns when the credential is created with `include: "token_material"` (and on `GET /v2/telephony_credentials/{id}/token_material`). Store it with the credential's `id`, `user_id`, `sip_username` and `expires_at`, server side, and you can mint tokens for as long as the credential lives, with no further requests.
