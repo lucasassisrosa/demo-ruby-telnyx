@@ -26,7 +26,7 @@ You will need to set up:
 * Mint a WebRTC login token for it on your own server with `TelephonyCredential#to_jwt`, without a request to Telnyx per login
 * Check the token by logging in to the WebRTC gateway, the way the WebRTC SDKs do
 
-`to_jwt` needs Telnyx-Ruby 3.1.0. Until it is published on RubyGems the `Gemfile` installs it from the `legacy-3.x` branch of [telnyx-ruby](https://github.com/team-telnyx/telnyx-ruby).
+`to_jwt` needs Telnyx-Ruby 3.1.0 or later (`gem "telnyx", "~> 3.1"`).
 
 ## Usage
 
